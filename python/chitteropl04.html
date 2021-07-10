@@ -1,0 +1,12 @@
+<tw-storydata name="ChitterOPL04" startnode="1" creator="Twine" creator-version="2.3.5" ifid="CF268955-64BE-4C44-A312-97BB8893BAF7" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Prelude001" tags="" position="50,51" size="100,100">VAR lines = &quot;Do you like games?&quot;;
+jsonPassage(lines,&quot;question&quot;,&quot;a,b&quot;) [[jsonEdge(&quot;&quot;,&quot;&quot;)|YesGames]][[jsonEdge(&quot;&quot;,&quot;&quot;) | NoGames]]</tw-passagedata><tw-passagedata pid="2" name="YesGames" tags="" position="301,32" size="100,100">VAR counter = 5;
+VAR randomNumber = RAND(17);
+jsonPassage(&quot;Good, guess my number!&quot;,&quot;happy&quot;,&quot;#&quot;)[[jsonEdge(&quot;&quot;,&quot;&quot;) | PickNumber]]</tw-passagedata><tw-passagedata pid="3" name=" NoGames" tags="" position="253,262" size="100,100">jsonPassage(&quot;Uh-oh, Not my problem!&quot;,&quot;evil&quot;,&quot;noOptions&quot;)</tw-passagedata><tw-passagedata pid="4" name=" PickNumber" tags="" position="560,150" size="100,100">VAR counter = counter - 1;
+VAR options = &quot;#&quot;;
+VAR gotIt = &quot;no&quot;;
+IF ( counter &lt; 1 ) THEN VAR options = &quot;&quot;;
+IF ( playerInput == randomNumber ) THEN VAR gotIt = &quot;You got it! &quot;;
+IF ( playerInput &lt; randomNumber ) THEN VAR gotIt = &quot;higher &quot;;
+IF ( playerInput &gt; randomNumber ) THEN VAR gotIt = &quot;lower &quot;;
+jsonPassage(gotIt + TO_STR(counter) + &quot; guesses left.&quot;,&quot;happy&quot;,options)[[jsonEdge(&quot;&quot;,&quot;&quot;) | PickNumber]]</tw-passagedata></tw-storydata>
+
